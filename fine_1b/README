@@ -1,0 +1,12 @@
+o Block 1 Atmosphere
+o Block 11 Building
+o Sideset:
+1   Base of Atm
+2   Top of Atm
+3   -Y
+4   +X
+5   +Y
+6   -X
+11  Bottom of building
+112 Top of Building
+113 Side Walls Building
