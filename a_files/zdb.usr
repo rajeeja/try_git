@@ -1,0 +1,155 @@
+C-----------------------------------------------------------------------
+C	Urban tests 3D
+C-----------------------------------------------------------------------
+      subroutine uservp(ix,iy,iz,eg) ! set variable properties
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      integer e,f,eg
+c     e = gllel(eg)
+
+      udiff  = 0.0
+      utrans = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userf(ix,iy,iz,eg) ! set acceleration term
+c
+c     Note: this is an acceleration term, NOT a force!
+c     Thus, ffx will subsequently be multiplied by rho(x,t).
+c
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      integer e,f,eg
+c     e = gllel(eg)
+
+      ffx = 0.0
+      ffy = 0.0
+      ffz = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userq(ix,iy,iz,eg) ! set source term
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      integer e,f,eg
+c     e = gllel(eg)
+
+      qvol   = 0.0
+      source = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userbc(ix,iy,iz,iside,ieg) ! set up boundary conditions
+c     NOTE ::: This subroutine MAY NOT be called by every process
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+c      if (cbc(iside,gllel(ieg),ifield).eq.'v01')
+
+      ux   = 0.0
+      uy   = 0.0
+      uz   = 0.0
+      temp = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine useric(ix,iy,iz,ieg) ! set up initial conditions
+      include 'SIZE'
+      include 'TOTAL'
+      include 'NEKUSE'
+
+      ux   = 1.0
+      uy   = 0.0
+      uz   = 0.0
+      temp = 0.0
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine userchk()
+      include 'SIZE'
+      include 'TOTAL'
+
+      call avg_all
+
+      call e2_out
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat()   ! This routine to modify element vertices
+      include 'SIZE'
+      include 'TOTAL'
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat2()  ! This routine to modify mesh coordinates
+      include 'SIZE'
+      include 'TOTAL'
+
+      return
+      end
+c-----------------------------------------------------------------------
+      subroutine usrdat3()
+      include 'SIZE'
+      include 'TOTAL'
+
+      return
+      end
+C=======================================================================
+      subroutine e2_out
+      include 'SIZE'
+      include 'TOTAL'
+c
+c     prints out uvwp abs max and volume average/rms
+ 
+
+      n   = nx1*ny1*nz1*nelv
+      m   = nx2*ny2*nz2*nelv
+      vxm = glamax(vx,n)			! absolute value max
+      vym = glamax(vy,n)
+      prm = glamax(pr,m)
+      vxa = glsc2(vx,   bm1,n) / volvm1		! volume-average
+      vya = glsc2(vy,   bm1,n) / volvm1
+      pra = glsc2(pr,   bm2,m) / volvm2
+      vx2 = glsc3(vx,vx,bm1,n) / volvm1
+      vy2 = glsc3(vy,vy,bm1,n) / volvm1
+      pr2 = glsc3(pr,pr,bm2,m) / volvm2
+      vx2 = vx2 - vxa*vxa
+      vy2 = vy2 - vya*vya
+      pr2 = pr2 - pra*pra
+      if (vx2.gt.0) vx2 = sqrt(vx2)		! volume-rms
+      if (vy2.gt.0) vy2 = sqrt(vy2)
+      if (pr2.gt.0) pr2 = sqrt(pr2)
+
+      if (if3d) then				! 3D
+         vzm = glamax(vz,n)
+         vza = glsc2(vz,   bm1,n) / volvm1
+         vz2 = glsc3(vz,vz,bm1,n) / volvm1
+         vz2 = vz2 - vza*vza
+         if (vz2.gt.0) vz2 = sqrt(vz2)
+
+         if (nid.eq.0) write(6,1) istep,time,vxa,vya,vza,pra ! 1-2  3-6
+     $                      ,vx2,vy2,vz2,pr2,vxm,vym,vzm,prm ! 7-10 11-13
+      else
+         if (nid.eq.0) write(6,2) istep,time,vxa,vya,pra     ! 1-2 3-5
+     $                          ,vx2,vy2,pr2,vxm,vym,prm     ! 6-8 9-11
+      endif
+    1 format(i7,1p13e16.7,' e2')
+    2 format(i7,1p10e16.7,' e2')
+
+      return
+      end
+c-----------------------------------------------------------------------
