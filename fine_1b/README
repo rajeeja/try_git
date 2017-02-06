@@ -10,3 +10,12 @@ o Sideset:
 11  Bottom of building
 112 Top of Building
 113 Side Walls Building
+
+Other Hex27 model details
+
+  Number of dimensions     = 3
+  Number of element blocks = 2
+  Number of sidesets       = 9
+  Number of elements       = 870
+  Number of nodes          = 8169
+
