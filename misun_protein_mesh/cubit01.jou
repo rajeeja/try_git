@@ -1,0 +1,93 @@
+## /Applications/Cubit.app/Contents/MacOS/cubitx
+## Cubit Version 15.0
+## Cubit Build 401220
+## Revised 2015-10-29 13:04:49 -0600 (Thu, 29 Oct 2015)
+## Running 02/06/2017 07:27:40 PM
+## Command Options:
+undo on
+import stl "/Users/rajeevjain/try_git/misun_protein_mesh/misun_protein_mesh.stl" merge
+mesh volume all
+delete mesh volume all propagate
+surface all scheme trimesh
+mesh surface all
+undo group begin
+set attribute off
+export acis "/Users/rajeevjain/try_git/misun_protein_mesh/pm_acis.sat" overwrite
+undo group end
+undo group begin
+set attribute off
+export step "/Users/rajeevjain/try_git/misun_protein_mesh/pm_stp.stp" overwrite
+undo group end
+list model info
+mesh surface all
+set developer commands on
+webcut volume 1 with plane xplane offset 0 noimprint nomerge
+mesh surface all
+merge volume all
+merge surface all
+mesh volume all
+delete mesh volume all propagate
+merge volume all
+webcut volume all with plane yplane offset -5.25
+merge volume all
+mesh surface all
+mesh volume all
+mesh volume 1
+delete mesh volume all propagate
+volume all scheme tetmesh
+mesh volume all
+thex volume all
+undo group begin
+volume all smooth scheme mean ratio cpu 1
+smooth volume all
+undo group end
+undo group begin
+volume all smooth scheme smart laplacian
+smooth volume all
+undo group end
+undo group begin
+volume all smooth scheme laplacian
+smooth volume all
+undo group end
+undo group begin
+volume all smooth scheme equipotential
+smooth volume all
+undo group end
+delete mesh volume all propagate
+volume all scheme tetmesh
+mesh volume all
+undo group begin
+cleanup volume all
+remesh volume all
+undo group end
+thex volume all
+export mesh "protein_tet_hex.exo"
+block 1 volume all
+block 1 element type HEX27
+export mesh "protein_tet_hex.exo" overwrite
+delete mesh volume all propagate
+mesh volume all
+delete mesh volume all propagate
+curve all size 0.5
+mesh volume all
+thex volume all
+list block 1
+merge volume all
+list model info
+save as "protein_tet_hex_coarse.cub"
+reset
+open "protein_tet_hex_coarse.cub"
+export mesh "protein_tet_hex_coarse.exo" overwrite
+block 1 volume all
+block 1 element type HEX27
+export mesh "protein_tet_hex_coarse.exo" overwrite
+reset
+import mesh geometry "protein_tet_hex_coarse.exo"
+undo group begin
+volume all smooth scheme condition number beta 2 cpu 2
+smooth volume all
+undo group end
+undo group begin
+volume all smooth scheme mean ratio cpu 2
+smooth volume all
+undo group end

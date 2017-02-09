@@ -1,0 +1,36 @@
+## /Applications/Cubit.app/Contents/MacOS/cubitx
+## Cubit Version 15.0
+## Cubit Build 401220
+## Revised 2015-10-29 13:04:49 -0600 (Thu, 29 Oct 2015)
+## Running 02/09/2017 05:05:30 PM
+## Command Options:
+undo on
+set developer on
+webcut volume 1 with plane xplane offset 0 noimprint nomerge
+webcut volume 1 with plane yplane offset -5.25 noimprint nomerge
+imprint volume all
+merge volume all
+surface all scheme pave
+mesh surface all
+mesh volume all
+delete mesh volume all propagate
+surface all scheme trimesh
+mesh volume all
+mesh surface all
+reset
+import mesh geometry "/Users/rajeevjain/try_git/misun_protein_mesh/protein_tet_hex_coarse.exo" block all use nodeset sideset feature_angle 135 linear merge
+quality volume all aspect ratio global
+quality volume all aspect ratio global draw mesh
+reset
+reset
+reset
+webcut volume 1 with plane xplane noimprint nomerge
+mesh surface all
+list model info
+mesh volume all
+delete mesh volume all
+delete mesh volume all propagate
+merge volume all
+reset
+import mesh geometry "/Users/rajeevjain/try_git/misun_protein_mesh/protein_tet_hex_coarse.exo" block all use nodeset sideset feature_angle 135 linear merge
+delete mesh volume all propagate

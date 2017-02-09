@@ -1,0 +1,5 @@
+#!python
+cubit.cmd('set node constraint on')
+cubit.cmd('cd')
+cubit.cmd('open "/Users/rajeevjain/try_git/misun_protein_mesh/protein_tet_hex_coarse.cub"')
+cubit.cmd('dr hex all')
