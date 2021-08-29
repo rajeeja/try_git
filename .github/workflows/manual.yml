@@ -38,6 +38,24 @@ jobs:
     - name: "install dependencies"
       run: |
           sudo apt-get update
-          sudo apt-get install libhdf5-mpich-dev
+          # mpi          
+          sudo apt-get --yes install gfortran openmpi-bin openmpi-common libopenmpi-dev
+          sudo apt-get install libtool
+          # zlib
+          sudo apt-get install zlib1g-dev           
+          # hdf5
+          git clone https://github.com/HDFGroup/hdf5.git
           which mpicc
-          which h5dump
+  
+    - name: Installation
+      run: |
+         mydir="$PWD"
+         export HDF5_DIR=$mydir/hdf5/install
+         mkdir $HDF5_DIR
+         # Compile HDF5
+         cd hdf5
+         export HDF5_LIBTOOL=/usr/bin/libtoolize
+         ./autogen.sh
+         ./configure --prefix=$HDF5_DIR --enable-parallel --enable-threadsafe --enable-unsupported --enable-fortran
+         make && make install
+        
