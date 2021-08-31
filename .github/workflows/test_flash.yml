@@ -26,6 +26,8 @@ jobs:
     - name: "install dependencies"
       run: |
           sudo apt-get update
+          sudo apt-get install libopenmpi-dev
+          which mpif90
           # parallel hdf5 with fortran
           sudo apt-get install libhdf5-mpi-dev
     - name: "setup problem and execute"
