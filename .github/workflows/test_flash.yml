@@ -28,12 +28,12 @@ jobs:
           sudo apt-get update
           # parallel hdf5 with fortran
           sudo apt-get install libhdf5-mpi-dev
-          git checkout development
     - name: "setup problem and execute"
       # make a site if required for github actions    
       run: |           
           pwd
           ls
+          which h5pfc
           ./setup ${{ github.event.inputs.name }} -auto -debug
           cd object
           mpiexec -np 2 ./flash5     
