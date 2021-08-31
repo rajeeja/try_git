@@ -37,7 +37,10 @@ jobs:
           ls
           which h5pfc
           which mpif90
-          sudo mkdir /usr/local/mpich2/bin/
+          cd /usr/local
+          sudo mkdir mpich2
+          cd mpich2
+          sudo mkdir bin/
           sudo ln -s /usr/bin/* /usr/local/mpich2//bin/
           ls -ltrh /usr/local/mpich2//bin/mpif90
           ./setup ${{ github.event.inputs.name }} -auto -debug
