@@ -2,16 +2,6 @@
 name: Manual workflow linux and osx
 on: [workflow_dispatch]
 
-# Can be run automatically with the following:
-# on:
-#   pull_request:
-#     branches: [ master ]
-#   push:
-#     branches: [ master ]  
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-
 jobs:
   regression-tempestremap:
     name: "regression-tempestremap"
@@ -50,8 +40,6 @@ jobs:
         conda install -y -c conda-forge autoconf automake libtool lapack libnetcdf numpy pandas
         which python
 
-    - name: Ubuntu TempestRemap Build Install 
-      if: contains(matrix.os, 'ubuntu')
     - name: Ubuntu Tempest Build and Installation 
       if: matrix.os == 'ubuntu-latest'
       run: |
