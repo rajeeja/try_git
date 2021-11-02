@@ -1,0 +1,7 @@
+name: workflow_dispatch
+on: [workflow_dispatch]
+jobs:
+  manual_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "workflow_dispatch"
