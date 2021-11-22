@@ -1,0 +1,354 @@
+(base) jain @ compute001 ~
+└─ $ ▶ mbsize moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo 
+mbsize: /homes/jain/anaconda3/lib/libcurl.so.4: no version information available (required by /homes/fathom/3rdparty/netcdf/4.3.2/mpich-3.1/gnu/lib/libnetcdf.so.7)
+File moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo:
+   type count   total         minimum         average             rms         maximum        std.dev.
+------- ----- ------- --------------- --------------- --------------- --------------- ---------------
+   Quad     6       6               1               1               1               1               0
+    Hex     1       1               1               1               1               1               0
+1D Side    36      36               1               1               1               1               0
+ Vertex     8
+
+(base) jain @ compute001 ~
+└─ $ ▶ mbsize -t  moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo 
+mbsize: /homes/jain/anaconda3/lib/libcurl.so.4: no version information available (required by /homes/fathom/3rdparty/netcdf/4.3.2/mpich-3.1/gnu/lib/libnetcdf.so.7)
+File moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo:
+      Tag Name EntitySet
+-------------- ---------
+  MATERIAL_SET         1
+   NEUMANN_SET         7
+ DIRICHLET_SET         7
+GEOM_DIMENSION         0
+     GLOBAL_ID        15
+ HAS_MID_NODES         1
+    distFactor         0
+      qaRecord         0
+
+(base) jain @ compute001 ~
+└─ $ ▶ mbsize -ll  moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo 
+mbsize: /homes/jain/anaconda3/lib/libcurl.so.4: no version information available (required by /homes/fathom/3rdparty/netcdf/4.3.2/mpich-3.1/gnu/lib/libnetcdf.so.7)
+File moab/MeshFiles/unittest/io/hex_2x2x2_ss.exo:
+
+Vertex 1:
+Global id = 0
+Coordinates: (0, 0, 0)
+  Adjacencies:
+   Quad 1, Quad 3, Quad 6
+   Hex 1
+  Explicit adjacencies: Quad 1, Quad 3, Quad 6, Hex 1, EntitySet 2, EntitySet 3, EntitySet 5, EntitySet 8
+Dense tags:
+
+Vertex 2:
+Global id = 0
+Coordinates: (1, 0, 0)
+  Adjacencies:
+   Quad 1, Quad 3, Quad 4
+   Hex 1
+  Explicit adjacencies: Quad 1, Quad 3, Quad 4, Hex 1, EntitySet 2, EntitySet 3, EntitySet 5, EntitySet 6
+Dense tags:
+
+Vertex 3:
+Global id = 0
+Coordinates: (0, 1, 0)
+  Adjacencies:
+   Quad 1, Quad 5, Quad 6
+   Hex 1
+  Explicit adjacencies: Quad 1, Quad 5, Quad 6, Hex 1, EntitySet 2, EntitySet 3, EntitySet 7, EntitySet 8
+Dense tags:
+
+Vertex 4:
+Global id = 0
+Coordinates: (1, 1, 0)
+  Adjacencies:
+   Quad 1, Quad 4, Quad 5
+   Hex 1
+  Explicit adjacencies: Quad 1, Quad 4, Quad 5, Hex 1, EntitySet 2, EntitySet 3, EntitySet 6, EntitySet 7
+Dense tags:
+
+Vertex 5:
+Global id = 0
+Coordinates: (0, 0, 1)
+  Adjacencies:
+   Quad 2, Quad 3, Quad 6
+   Hex 1
+  Explicit adjacencies: Quad 2, Quad 3, Quad 6, Hex 1, EntitySet 2, EntitySet 4, EntitySet 5, EntitySet 8
+Dense tags:
+
+Vertex 6:
+Global id = 0
+Coordinates: (1, 0, 1)
+  Adjacencies:
+   Quad 2, Quad 3, Quad 4
+   Hex 1
+  Explicit adjacencies: Quad 2, Quad 3, Quad 4, Hex 1, EntitySet 2, EntitySet 4, EntitySet 5, EntitySet 6
+Dense tags:
+
+Vertex 7:
+Global id = 0
+Coordinates: (0, 1, 1)
+  Adjacencies:
+   Quad 2, Quad 5, Quad 6
+   Hex 1
+  Explicit adjacencies: Quad 2, Quad 5, Quad 6, Hex 1, EntitySet 2, EntitySet 4, EntitySet 7, EntitySet 8
+Dense tags:
+
+Vertex 8:
+Global id = 0
+Coordinates: (1, 1, 1)
+  Adjacencies:
+   Quad 2, Quad 4, Quad 5
+   Hex 1
+  Explicit adjacencies: Quad 2, Quad 4, Quad 5, Hex 1, EntitySet 2, EntitySet 4, EntitySet 6, EntitySet 7
+Dense tags:
+
+Quad 1:
+Global id = 0
+  Adjacencies:
+   Vertex 1, Vertex 3, Vertex 4, Vertex 2
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 10
+Dense tags:
+
+Quad 2:
+Global id = 0
+  Adjacencies:
+   Vertex 5, Vertex 6, Vertex 8, Vertex 7
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 11
+Dense tags:
+
+Quad 3:
+Global id = 0
+  Adjacencies:
+   Vertex 1, Vertex 2, Vertex 6, Vertex 5
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 12
+Dense tags:
+
+Quad 4:
+Global id = 0
+  Adjacencies:
+   Vertex 2, Vertex 4, Vertex 8, Vertex 6
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 13
+Dense tags:
+
+Quad 5:
+Global id = 0
+  Adjacencies:
+   Vertex 4, Vertex 3, Vertex 7, Vertex 8
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 14
+Dense tags:
+
+Quad 6:
+Global id = 0
+  Adjacencies:
+   Vertex 3, Vertex 1, Vertex 5, Vertex 7
+   Hex 1
+  Explicit adjacencies: EntitySet 9, EntitySet 15
+Dense tags:
+
+Hex 1:
+Global id = 0
+  Adjacencies:
+   Vertex 1, Vertex 2, Vertex 4, Vertex 3, Vertex 5, Vertex 6, Vertex 8, Vertex 7
+   Quad 3, Quad 4, Quad 5, Quad 6, Quad 1, Quad 2
+  Explicit adjacencies: EntitySet 1
+Dense tags:
+
+EntitySet 1:
+Global id = 30000
+MBENTITYSET 1
+        Hex 10  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    MATERIAL_SET = 30000 
+    HAS_MID_NODES = 0 0 0 0 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 30000 
+
+EntitySet 2:
+Global id = 1
+MBENTITYSET 2
+        Vertex 1 - 8
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 1 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 1 
+
+EntitySet 3:
+Global id = 101
+MBENTITYSET 3
+        Vertex 1 - 4
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 101 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 101 
+
+EntitySet 4:
+Global id = 102
+MBENTITYSET 4
+        Vertex 5 - 8
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 102 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 102 
+
+EntitySet 5:
+Global id = 103
+MBENTITYSET 5
+        Vertex 1 - 2
+        Vertex 5 - 6
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 103 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 103 
+
+EntitySet 6:
+Global id = 104
+MBENTITYSET 6
+        Vertex 2
+        Vertex 4
+        Vertex 6
+        Vertex 8
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 104 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 104 
+
+EntitySet 7:
+Global id = 105
+MBENTITYSET 7
+        Vertex 3 - 4
+        Vertex 7 - 8
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 105 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 105 
+
+EntitySet 8:
+Global id = 106
+MBENTITYSET 8
+        Vertex 1
+        Vertex 3
+        Vertex 5
+        Vertex 7
+  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    DIRICHLET_SET = 106 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 106 
+
+EntitySet 9:
+Global id = 1
+MBENTITYSET 9
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 1 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 1 
+
+EntitySet 10:
+Global id = 101
+MBENTITYSET 10
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 101 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 101 
+
+EntitySet 11:
+Global id = 102
+MBENTITYSET 11
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 102 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 102 
+
+EntitySet 12:
+Global id = 103
+MBENTITYSET 12
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 103 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 103 
+
+EntitySet 13:
+Global id = 104
+MBENTITYSET 13
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 104 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 104 
+
+EntitySet 14:
+Global id = 105
+MBENTITYSET 14
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 105 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 105 
+
+EntitySet 15:
+Global id = 106
+MBENTITYSET 15
+        Quad 0  Parent sets: (none)
+  Child sets: (none)
+  Sparse tags:
+    NEUMANN_SET = 106 
+  Adjacencies:
+(none)
+Dense tags:
+  GLOBAL_ID = 106 
